@@ -1,7 +1,6 @@
 import argparse
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
-from pytorch_lightning.strategies import ddp
 
 from vqvae import VQVAE
 from data import VideoData
@@ -42,7 +41,7 @@ def main():
 
     args.gpus = -1
     # Some params later will fail, ignore the warning during running
-    args.strategy = ddp.DDPStrategy(find_unused_parameters=True)
+    args.strategy = 'ddp'
 
     print(args)
     print(kwargs)
