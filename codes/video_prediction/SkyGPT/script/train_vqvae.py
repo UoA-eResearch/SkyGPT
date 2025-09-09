@@ -27,6 +27,7 @@ def main():
 
     callbacks = []
     callbacks.append(ModelCheckpoint(monitor='val/recon_loss', mode='min'))
+    callbacks.append(ModelCheckpoint(every_n_epochs=5))
 
     kwargs = dict()
 
